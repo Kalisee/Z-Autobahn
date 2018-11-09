@@ -1,5 +1,5 @@
                                                                        
-### What does this thing do? Z-Autobahn Scans enterprise networks in seconds! It loops through thousands of IP addresses from your Spreadsheets and interacts with your favorite API's, no speed limits here! 
+### What does this thing do? Z-Autobahn takes your data and scans your entire enterprise network in seconds! It loops through thousands of assets from your spreadsheets & interacts with your favorite APIs, no speed limits here! 
 #### Instructions:
 
 ###### -- Preq 1: Make sure the (.xlsx , .txt , etc.) you want scanned are saved INSIDE ~/Downloads/Z-Autobahn-master
