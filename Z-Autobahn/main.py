@@ -1,9 +1,6 @@
 import os
 import xlrd
 import logo
-import cymru_auto
-import nmap_auto
-import dnsenum_auto
 
 logo.printLogo()
 
@@ -13,8 +10,38 @@ print("[3] DNSenum")
 num = input(": ")
 
 if num == '1':
-    cymru_auto.cymru()
+	excel = input("Enter in a bind file: ")
+	book = xlrd.open_workbook(excel)
+	sheet = book.sheet_by_name('Sheet1')
+	data = [[sheet.cell_value(r, c) for c in range(sheet.ncols)] for r in range(sheet.nrows)]
+	i = 0
+	while i < len(data):
+		os.system('whois -h whois.cymru.com " -w ' + ''.join(data[i]) + '"')
+	#print('\n')
+		i += 1
+
 elif num == '2':
-    nmap_auto.nmap()
+	logo.printNmap()
+	excel = input("Enter in an IP list file: ")
+	book = xlrd.open_workbook(excel)
+	sheet = book.sheet_by_name('Sheet1')
+	data = [[sheet.cell_value(r, c) for c in range(sheet.ncols)] for r in range(sheet.nrows)]
+	i = 0
+	while i < len(data):
+		os.system('nmap ' + ''.join(data[i]))
+	#print('\n')
+		i += 1
+
 elif num == '3':
-    dnsenum_auto.dnsenum()
+	logo.printDNSenum()
+	excel = input("Enter in a bind file: IN PROG")
+	book = xlrd.open_workbook(excel)
+	sheet = book.sheet_by_name('Sheet1')
+	data = [[sheet.cell_value(r,c) for c in range(sheet.ncols)] for r in range(sheet.nrows)]
+	i = 0
+	while i < len(data):
+		os.system('whois -h whois.cymru.com " -w ' + ''.join(data[i]) + '"')
+	#print('\n')
+		i += 1
+
+
